@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    background-color: lightgray;
+    margin-bottom: 30px;
+}
+
+li {
+    padding: 15px 10px;
+    border-left: 2px solid white;
+}
+
+.float-menu li {
+    float: left;
+}
+
+/* убираем отступы для inline-block */
+.inline-block-menu {
+    letter-spacing: -1px;
+    font-size: 0;
+    line-height: 0;
+}
+
+.inline-block-menu li {
+    display: inline-block;
+    /* сбрасываем свойства для уборки отступов */
+    font-size: 16px;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+li:hover {
+    background-color: black;
+}
+li:hover a {
+    color: white;
+}
