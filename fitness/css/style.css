@@ -1,0 +1,132 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,cyrillic-ext);
+
+* {
+    box-sizing: border-box;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+body {
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 16px;
+    background-color: lightgrey;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 700;
+    padding: 15px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    background-color: white;
+    -webkit-box-shadow: 4px 0px 5px 0px rgba(0,0,0,0.75), -4px 0px 5px 0px rgba(0,0,0,0.75) ;
+    -moz-box-shadow: 4px 0px 5px 0px rgba(0,0,0,0.75), -4px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 4px 0px 5px 0px rgba(0,0,0,0.75), -4px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.menu-top {
+    background: linear-gradient(#5e5e5e, #434343);
+}
+
+.menu-top li {
+    float: left;
+    border-right: 1px solid transparent;
+}
+
+.menu-top li:hover {
+    border-right-color: white;
+    background: linear-gradient(#4a4a4a, #2e2e2e);
+}
+
+.menu-top li a {
+    display: inline-block;
+    line-height: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+    color: white;
+}
+
+.left {
+    float: left;
+    width: 25%;
+}
+
+.right {
+    float: right;
+    width: 73%;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+p {
+    padding: 15px;
+    text-align: justify;
+}
+
+ul.menu-side {
+    margin-top: 50px;
+    margin-left: 10px;
+    border: 1px solid #d1d1d1;
+}
+
+ul.menu-side li {
+    padding: 15px 10px;
+    border-bottom: 1px solid #d1d1d1;
+    transition: 0.2s;
+}
+
+ul.menu-side li:last-child {
+    border-bottom: none;
+}
+
+ul.menu-side li:hover {
+    padding-left: 30px;
+    background-color: lightgrey;
+}
+
+ul.menu-side li:hover a {
+    color: black;
+}
+
+ul.menu-side li a {
+    color: gray;
+}
+
+ul.menu-top.menu-bottom {
+    background: gray;
+    margin-bottom: 30px;
+}
+
+ul.menu-top.menu-bottom li:hover {
+    background: gray;
+    border-right-color: transparent;
+}
+
+ul.menu-top.menu-bottom a {
+    color: black;
+}
+
+ul.menu-top.menu-bottom li:hover a{
+    text-decoration: underline;
+}
+
+ul.menu-bottom li:last-child{
+    float: right;
+    margin-right: 10px;
+    line-height: 40px;
+}

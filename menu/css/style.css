@@ -1,5 +1,15 @@
+@font-face{
+    font-family: Kaushan;
+    src: url('../fonts/KaushanScript-Regular.otf');
+}
+
 *{
     box-sizing: border-box;
+}
+
+body {
+    font-family: Kaushan, sans-serif;
+    font-weight: bold;
 }
 
 .clearfix:after {
@@ -18,6 +28,10 @@ ul {
 li {
     padding: 15px 10px;
     border-left: 2px solid white;
+}
+
+li:hover {
+    transform: scale(1.2, 1.2);
 }
 
 .float-menu li {
