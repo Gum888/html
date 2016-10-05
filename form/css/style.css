@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body, .wrapper {
+    height: 100%;
+}
+
+.wrapper {
+    background-image: url('../img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 60px;
+    border-bottom: 1px solid transparent;
+    position: relative;
+}
+
+.menu {
+    background-color: #064F8E;
+    height: 60px;
+}
+
+.form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    max-width: 500px;
+    margin: 0 auto;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
