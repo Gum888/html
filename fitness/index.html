@@ -10,14 +10,23 @@
     <body>
         <div class="wrapper">
             <h1>Fitness</h1>
-            <ul class="main_menu clearfix">
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">Товары</a></li>
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Контакты</a></li>
+            <ul class="menu_main clearfix">
+                <li class="menu_main__item"><a href="#">Главная</a></li>
+                <li class="menu_main__item menu_main__item_dropdown">Товары
+                    <ul class="menu_main__submenu">
+                        <li><a href="#">Ноутбуки</a></li>
+                        <li><a href="#">Планшеты</a></li>
+                        <li><a href="#">Телефоны</a></li>
+                        <li><a href="#">Телевизоры</a></li>
+                        <li><a href="#">Бытовая техника</a></li>
+                        <li><a href="#">Автотовары</a></li>
+                    </ul>
+                </li>
+                <li class="menu_main__item"><a href="#">О нас</a></li>
+                <li class="menu_main__item"><a href="#">Контакты</a></li>
             </ul>
-            <div class="main_wrapper clearfix">
-                <aside class="left_panel">
+            <main class="main_wrapper clearfix">
+                <nav class="left_panel clearfix">
                     <ul class="side_menu">
                         <li><a href="#">Ноутбуки</a></li>
                         <li><a href="#">Планшеты</a></li>
@@ -26,8 +35,8 @@
                         <li><a href="#">Бытовая техника</a></li>
                         <li><a href="#">Автотовары</a></li>
                     </ul>
-                </aside>
-                <main>
+                </nav>
+                <section class="main">
                     <img src="img/bike.jpg" alt="">
                     <p>
                         Lorem Ipsum - це текст-"риба", що використовується в друкарстві та дизайні. Lorem Ipsum є, фактично,
@@ -37,14 +46,14 @@
                         які містили уривки з Lorem Ipsum, і вдруге - нещодавно завдяки програмам комп'ютерного верстування на кшталт Aldus Pagemaker,
                         які використовували різні версії Lorem Ipsum. 
                     </p>
-                </main>
-            </div>
-            <ul class="main_menu bottom clearfix">
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">Товары</a></li>
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Контакты</a></li>
-                <li>2014 &copy; All rights reserved</li>
+                </section>
+            </main>
+            <ul class="menu_main menu_main_bottom clearfix">
+                <li class="menu_main__item"><a href="#">Главная</a></li>
+                <li class="menu_main__item"><a href="#">Товары</a></li>
+                <li class="menu_main__item"><a href="#">О нас</a></li>
+                <li class="menu_main__item"><a href="#">Контакты</a></li>
+                <li class="menu_main__item">2014 &copy; All rights reserved</li>
             </ul>
         </div>
     </body>
