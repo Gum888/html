@@ -1,12 +1,18 @@
 @mixin transform($transforms) {
-	-webkit-transform: $transforms;
-	-moz-transform: $transforms;
-	-ms-transform: $transforms;
-	transform: $transforms;
+    -webkit-transform: $transforms;
+    -moz-transform: $transforms;
+    -ms-transform: $transforms;
+    transform: $transforms;
 }
 
-@mixin translate ($x : 0, $y : -50%) {
+@mixin translate($x : 0, $y : -50%) {
     @include transform(translate($x, $y));
+}
+
+@mixin box-shadow($params) {
+    -webkit-box-shadow: $params;
+    -moz-box-shadow: $params;
+    box-shadow: $params;
 }
 
 @mixin fixedText($font-size, $strings) {

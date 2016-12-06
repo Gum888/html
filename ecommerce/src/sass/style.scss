@@ -24,22 +24,24 @@ img {
 }
 
 header {
+    $header-line-height: 54px;
     padding-top: 15px;
     padding-bottom: 15px;
-    line-height: 54px;
     text-align: center;
-    
+
     h1 {
         float: left;
         font: 49px Lobster, Arial, sans-serif;
+        line-height: $header-line-height;
         color: $logo-color;
     }
-    
+
     .search-wrapper {
         display: inline-block;
         width: 47%;
         max-width: 450px;
-        
+        line-height: $header-line-height;
+
         input[type="search"] {
             width: 100%;
             height: 32px;
@@ -47,23 +49,28 @@ header {
             border: 1px solid #e1e1e1;
             background: url('../img/search.png');
             background-repeat: no-repeat;
-            background-position: 98% center;
+            background-position: right 10px center;
         }
     }
-    
+
     .busket {
+        position: relative;
         float: right;
         font-size: 33px;
+        line-height: $header-line-height;
         color: #bdbdbd;
-        
+
         p {
             display: inline-block;
+            padding-left: 40px;
         }
-        
+
         &:before {
             content: "";
-            display: inline-block;
-            vertical-align: middle;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            @include translate();
             height: 41px;
             width: 37px;
             background-image: url('../img/busket.png');
@@ -74,18 +81,31 @@ header {
 }
 
 nav {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    background-color: #38D7C2;
-    
+    text-align: center;
+    background-color: $menu-bg;
+    @include box-shadow(0 2px 4px -2px rgba(0, 0, 0, 0.5));
+
     ul {
+        display: inline-block;
+
         li {
-            float: left;
-            padding: 0 10px;
-            border-right: 1px solid white;
-            
+            display: inline-block;
+            margin: 7px 0;
+            padding: 0 19px;
+            border-left: 2px solid white;
+            text-align: center;
+
+            &:first-child {
+                padding-left: 0;
+                border-left: none;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+
             a {
-                font: 20px "Bebas Neue", sans-serif;
+                font-size: 21px;
                 color: white;
                 text-transform: uppercase;
                 text-decoration: none;
@@ -96,57 +116,65 @@ nav {
 
 .big-slider {
     position: relative;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background-color: $green-bg;
+    padding-top: 62px;
+    padding-bottom: 58px;
+    background-color: $slider-top-color;
     
-    .big-slider-image {
-        float: left;
-        width: 45%;
+    .slide {
+        .big-slider-image {
+            float: left;
+            width: 38%;
+        }
+
+        .big-slider-text {
+            float: left;
+            margin-left: 6%;
+            width: 43%;
+
+            h2 {
+                font-size: 61px;
+                color: white;
+                text-transform: uppercase;
+                margin-top: 12px;
+                margin-bottom: 3px;
+            }
+
+            p {
+                font: 17px/1.6 "Open Sans", Arial, sans-serif;
+                color: white;
+                margin-bottom: 25px;
+            }
+
+            button {
+                padding: 6px 23px 3px;
+                background-color: transparent;
+                border: 3px solid white;
+                border-radius: 7px;
+                font: 27px "Bebas Neue", Arial, sans-serif;
+                text-transform: uppercase;
+                color: white;
+            }
+        }
     }
-    
-    .big-slider-text {
-        float: left;
-        width: 55%;
-        
-        h2 {
-            font: 61px "Bebas Neue", sans-serif;
-            line-height: 50px;
-            color: white;
-            text-transform: uppercase;
-        }
-        
-        p {
-            font-family: "Open Sans", sans-serif;
-            line-height: 1.4;
-            color: white;
-        }
-        
-        button {
-            color: white;
-            text-transform: uppercase;
-            background-color: transparent;
-            border: 4px solid white;
-            border-radius: 4px;
-            padding: 8px 12px;
-        }
-    }
-    
+
     .big-slider-nav {
         position: absolute;
         left: 50%;
-        bottom: 20px;
-        
+        bottom: 25px;
+        @include translate(-50%, 0);
+
         li {
-            float: left;
-            margin: 0 5px;
-            height: 10px;
-            width: 10px;
-            border-radius: 50%;
+            $size: 10px;
+            display: inline-block;
+            width: $size;
+            height: $size;
+            margin: $size/2;
+            border-radius: $size/2;
             background-color: white;
-            
-            &.active {
-                background-color: lightgreen;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $slider-top-active-nav-color;
             }
         }
     }
@@ -156,20 +184,20 @@ nav {
     $height: 150px;
     padding-top: 20px;
     padding-bottom: 20px;
-    
+
     .slide {
         position: relative;
         float: left;
         width: 100% / $slide-number;
         height: $height;
-        
+
         .small-slider-image {
             position: absolute;
             top: 5px;
             left: 2%;
             bottom: 5px;
             width: 53%;
-            
+
             img {
                 position: absolute;
                 top: 50%;
@@ -177,23 +205,23 @@ nav {
                 max-height: 100%;
             }
         }
-        
+
         .small-slider-text {
             position: absolute;
             top: 5px;
             right: 2%;
             bottom: 5px;
             width: 43%;
-            
+
             .vertical-align {
                 position: absolute;
                 top: 50%;
                 @include translate();
-                
+
                 h3 {
                     @include fixedText(18px, 3);
                 }
-                
+
                 button {
                     padding: 5px 7px 1px;
                     margin-top: 5px;
@@ -212,7 +240,7 @@ nav {
     padding-top: 15px;
     padding-bottom: 15px;
     background-color: $green-bg;
-    
+
     h2 {
         font: 32px "Bebas Neue", sans-serif;
         color: white;
@@ -223,7 +251,7 @@ nav {
 .product-grid {
     padding-top: 20px;
     padding-bottom: 20px;
-    
+
     .product {
         $margin: 2%;
         margin-left: $margin;
@@ -233,19 +261,19 @@ nav {
         width: (100% - 6 * $margin)/ $product-per-row;
         border-bottom: 5px solid #35C593;
         text-align: center;
-        
+
         img {
             height: 60%;
             margin: 0 auto;
         }
-        
+
         h3 {
             @include fixedText(18px, 2);
         }
-        
+
         p {
             display: inline-block;
-          
+
         }
     }
 }
