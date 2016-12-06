@@ -5,21 +5,21 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     uglify = require('gulp-uglify'),
     watch = require('gulp-watch'),
-    browserSync = require('browser-sync'),
-    reload = browserSync.reload;
+    bs = require('browser-sync').create();
     
 gulp.task('default', ['browsersync', 'watch']);
 
 gulp.task('browsersync', function () {
-    browserSync({
-        server: {
-            baseDir: "./"
-        },
-        port: 8080,
-        open: true,
-        notify: false
+    bs.init({
+        server: "./",
+        port: 8080
     });
+});
 
+gulp.task('watch', function() {
+    gulp.watch('src/sass/**/*.scss', ['style']);
+    gulp.watch('src/js/script.js', ['script']);
+    bs.watch('index.html').on('change', bs.reload);
 });
 
 gulp.task('style', function() {
@@ -29,7 +29,7 @@ gulp.task('style', function() {
             .pipe(minify())
             .pipe(gulp.dest('css/'))
             .pipe(notify({message: 'Style task is finished'}))
-            .pipe(reload({stream: true}));;
+            .pipe(bs.reload({stream: true}));;
 });
 
 gulp.task('script', function() {
@@ -38,10 +38,5 @@ gulp.task('script', function() {
             .pipe(uglify())
             .pipe(gulp.dest('js/'))
             .pipe(notify({message: 'Script task is finished'}))
-            .pipe(reload({stream: true}));
-});
-
-gulp.task('watch', function() {
-    gulp.watch('src/sass/**/*.scss', ['style']);
-    gulp.watch('src/js/script.js', ['script']);
+            .pipe(bs.reload({stream: true}));
 });
