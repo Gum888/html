@@ -181,68 +181,82 @@ nav {
 }
 
 .small-slider {
-    $height: 150px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    position: relative;
+    @include box-shadow(0 2px 4px -2px rgba(0, 0, 0, 0.5));
 
     .slide {
         position: relative;
         float: left;
-        width: 100% / $slide-number;
-        height: $height;
+        width: 100% / $small-slider-slides;
+        height: $small-slider-height;
+        overflow: hidden;
+        border-right: 1px solid $slide-border-color;
+
+        /*&:nth-child(#{$small-slider-slides}) {
+            border-right: none;
+        }*/
 
         .small-slider-image {
             position: absolute;
-            top: 5px;
-            left: 2%;
-            bottom: 5px;
-            width: 53%;
+            top: 20px;
+            left: 0;
+            bottom: 20px;
+            width: 54%;
 
             img {
-                position: absolute;
-                top: 50%;
-                @include translate();
                 max-height: 100%;
             }
         }
 
         .small-slider-text {
             position: absolute;
-            top: 5px;
-            right: 2%;
-            bottom: 5px;
-            width: 43%;
+            top: 50%;
+            right: 0;
+            width: 45%;
+            @include translate();
 
-            .vertical-align {
-                position: absolute;
-                top: 50%;
-                @include translate();
-
-                h3 {
-                    @include fixedText(18px, 3);
-                }
-
-                button {
-                    padding: 5px 7px 1px;
-                    margin-top: 5px;
-                    font: 20px "Bebas Neue", sans-serif;
-                    color: white;
-                    background-color: $button-color;
-                    text-transform: uppercase;
-                    cursor: pointer;
-                }
+            h3 {
+                @include fixedText(18px, 3);
+                margin-bottom: 15px;
             }
+
+            button {
+                padding: 5px 12px 2px;
+                @extend %button;
+            }
+        }
+    }
+    
+    .small-slider-controls {
+        position: absolute;
+        height: $small-slider-height;
+        width: 29px;
+        top: 0;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+
+        &.left-arrow {
+            left: 3%;
+            background-image: url('../img/arrow_left.png');
+        }
+
+        &.right-arrow {
+            right: 3%;
+            background-image: url('../img/arrow_right.png');
         }
     }
 }
 
-.featured_product {
+.featured-product {
     padding-top: 15px;
     padding-bottom: 15px;
-    background-color: $green-bg;
+    background-color: #3bc4b8;
 
     h2 {
-        font: 32px "Bebas Neue", sans-serif;
+        font-size: 31px;
+        padding-top: 3px;
+        margin-left: 3%;
         color: white;
         text-transform: uppercase;
     }
