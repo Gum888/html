@@ -6,27 +6,20 @@ body {
     font-family: "Bebas Neue", Arial, sans-serif;
 }
 
-.clearfix:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.wrapper {
-    padding-left: $side-gap;
-    padding-right: $side-gap;
-}
-
 img {
     display: block;
     max-width: 100%;
     margin: 0 auto;
 }
 
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 header {
-    $header-line-height: 54px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 15px $side-gap;
     text-align: center;
 
     h1 {
@@ -80,7 +73,8 @@ header {
     }
 }
 
-nav {
+nav.top-nav {
+    padding: 0 $side-gap;
     text-align: center;
     background-color: $menu-bg;
     @include box-shadow(0 2px 4px -2px rgba(0, 0, 0, 0.5));
@@ -91,7 +85,7 @@ nav {
         li {
             display: inline-block;
             margin: 7px 0;
-            padding: 0 19px;
+            padding: 0 16px;
             border-left: 2px solid white;
             text-align: center;
 
@@ -116,10 +110,9 @@ nav {
 
 .big-slider {
     position: relative;
-    padding-top: 62px;
-    padding-bottom: 58px;
+    padding: 62px $side-gap 58px;
     background-color: $slider-top-color;
-    
+
     .slide {
         .big-slider-image {
             float: left;
@@ -182,6 +175,7 @@ nav {
 
 .small-slider {
     position: relative;
+    padding: 0 $side-gap;
     @include box-shadow(0 2px 4px -2px rgba(0, 0, 0, 0.5));
 
     .slide {
@@ -190,7 +184,7 @@ nav {
         width: 100% / $small-slider-slides;
         height: $small-slider-height;
         overflow: hidden;
-        border-right: 1px solid $slide-border-color;
+        border-right: 1px solid $border-color;
 
         /*&:nth-child(#{$small-slider-slides}) {
             border-right: none;
@@ -216,8 +210,9 @@ nav {
             @include translate();
 
             h3 {
-                @include fixedText(18px, 3);
+                @include fixedHeightText(2, 5px);
                 margin-bottom: 15px;
+                color: $slide-text-color;
             }
 
             button {
@@ -226,7 +221,7 @@ nav {
             }
         }
     }
-    
+
     .small-slider-controls {
         position: absolute;
         height: $small-slider-height;
@@ -248,10 +243,9 @@ nav {
     }
 }
 
-.featured-product {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    background-color: #3bc4b8;
+.featured-header {
+    padding: 15px $side-gap;
+    background-color: $featured-header-bg;
 
     h2 {
         font-size: 31px;
@@ -263,31 +257,86 @@ nav {
 }
 
 .product-grid {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 0 $side-gap 70px;
 
     .product {
-        $margin: 2%;
-        margin-left: $margin;
-        margin-right: $margin;
-        height: 200px;
+        $margin-side: 2%;
         float: left;
-        width: (100% - 6 * $margin)/ $product-per-row;
-        border-bottom: 5px solid #35C593;
+        margin: 46px $margin-side 0;
+        padding: 20px 10px 27px;
+        width: (100% - 2* $products-per-row * $margin-side)/ $products-per-row;
+        border: 1px solid $border-color;
+        border-bottom: 5px solid $button-color;
         text-align: center;
+        color: $slide-text-color;
 
-        img {
-            height: 60%;
-            margin: 0 auto;
+        .product-image-wrapper {
+            height: 120px;
+            margin-bottom: 22px;
+
+            img {
+                max-height: 100%;
+            }
         }
 
         h3 {
-            @include fixedText(18px, 2);
+            @include fixedHeightText(1, 0);
+            margin-bottom: 6px;
         }
 
         p {
-            display: inline-block;
-
+            @include fixedHeightText(1, 8px);
+            
+            span {
+                padding-right: 2%;
+            }
+            
+            button {
+                padding: 6px 7px 2px;
+                vertical-align: middle;
+                @extend %button;
+            }
         }
+    }
+}
+
+nav.bottom-links {
+    padding: 20px $side-gap 26px;
+    background-color: $bottom-nav-bg;
+
+    .bottom-links-column {
+        float: left;
+        width: 100% / $bottom-links-columns;
+        margin-top: 20px;
+        padding-left: 3%;
+        
+        h3 {
+            font-size: 27px;
+            text-transform: uppercase;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        ul li {
+            margin-bottom: 7px;
+
+            a {
+                font: 15px "Open Sans", Arial, sans-serif;
+                color: white;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+footer {
+    padding: 0 $side-gap;
+    background-color: $footer-bg;
+
+    p {
+        font: 15px "Open Sans", Arial, sans-serif;
+        line-height: 3;
+        color: white;
+        text-align: center;
     }
 }

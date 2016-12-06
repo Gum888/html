@@ -15,9 +15,10 @@
     box-shadow: $params;
 }
 
-@mixin fixedText($font-size, $strings) {
+@mixin fixedHeightText($lines, $line-gap, $font-size:27px) {
+    $line-height: $font-size + $line-gap;
     font-size: $font-size;
-    line-height: $font-size * 1.2;
-    height: $font-size * 1.2 * $strings;
+    line-height: $line-height;
+    height: $lines * $line-height;
     overflow-y: hidden;
 }
