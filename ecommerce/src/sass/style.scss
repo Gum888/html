@@ -85,7 +85,7 @@ nav.top-nav {
         li {
             display: inline-block;
             margin: 7px 0;
-            padding: 0 16px;
+            padding: 0 19px;
             border-left: 2px solid white;
             text-align: center;
 
@@ -114,13 +114,14 @@ nav.top-nav {
     background-color: $slider-top-color;
 
     .slide {
+        @extend %flexbox;
+        @include align-items();
+        
         .big-slider-image {
-            float: left;
             width: 38%;
         }
 
         .big-slider-text {
-            float: left;
             margin-left: 6%;
             width: 43%;
 
@@ -161,7 +162,7 @@ nav.top-nav {
             display: inline-block;
             width: $size;
             height: $size;
-            margin: $size/2;
+            margin: 0 $size/2;
             border-radius: $size/2;
             background-color: white;
             cursor: pointer;
@@ -179,35 +180,23 @@ nav.top-nav {
     @include box-shadow(0 2px 4px -2px rgba(0, 0, 0, 0.5));
 
     .slide {
-        position: relative;
+        @extend %flexbox;
+        @include align-items();
         float: left;
         width: 100% / $small-slider-slides;
         height: $small-slider-height;
-        overflow: hidden;
-        border-right: 1px solid $border-color;
+        border-left: 1px solid $border-color;
 
-        /*&:nth-child(#{$small-slider-slides}) {
-            border-right: none;
-        }*/
+        &:first-child {
+            border-left: none;
+        }
 
         .small-slider-image {
-            position: absolute;
-            top: 20px;
-            left: 0;
-            bottom: 20px;
             width: 54%;
-
-            img {
-                max-height: 100%;
-            }
         }
 
         .small-slider-text {
-            position: absolute;
-            top: 50%;
-            right: 0;
             width: 45%;
-            @include translate();
 
             h3 {
                 @include fixedHeightText(2, 5px);
@@ -318,7 +307,7 @@ nav.bottom-links {
         }
 
         ul li {
-            margin-bottom: 7px;
+            margin-bottom: 11px;
 
             a {
                 font: 15px "Open Sans", Arial, sans-serif;
