@@ -1,10 +1,15 @@
 $side-gap: 11%;
+$product-grid-margin-side: 3%;
 
 $header-line-height: 54px;
 $small-slider-height: 190px;
 
-$small-slider-slides: 3;
-$products-per-row: 3;
+$small-slider-slides-sm: 3;
+$small-slider-slides-xs: 2;
+$small-slider-slides-xxs: 1;
+$products-per-row-md: 3;
+$products-per-row-sm: 2;
+$products-per-row-xxs: 1;
 $bottom-links-columns: 4;
 
 $logo-color: #3cc3b5;
